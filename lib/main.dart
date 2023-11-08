@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:parcial2_/homePage.dart';
+import 'package:parcial2_/Page2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Remember',
+      title: 'Parcial 2 PM2',
       home: HomePage(),
     );
   }

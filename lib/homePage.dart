@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parcial2_/Page2.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,18 +23,22 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: MyListView(),
+      
     );
   }
+}
+void animar(){
+  
 }
 
 
 class MyListView extends StatelessWidget {
   MyListView({super.key});
   final List<Map<String, dynamic>> dataList = [
-    {"avatar": "", "content": "List item primary title"},
-    {"avatar": "", "content": "List item primary title"},
-    {"avatar": "", "content": "List item primary title"},
-    {"avatar": "", "content": "List item primary title"},
+    {"avatar": "", "content": "List item primary title", "otherText": "Circumfluus aeris obsistitur ardentior fert", "avatarImage": "lib/assets/avatar.jpg",},
+    {"avatar": "", "content": "List item primary title", "otherText": "Circumfluus aeris obsistitur ardentior fert", "avatarImage": "lib/assets/avatar.jpg",},
+    {"avatar": "", "content": "List item primary title", "otherText": "Circumfluus aeris obsistitur ardentior fert", "avatarImage": "lib/assets/avatar.jpg",},
+    {"avatar": "", "content": "List item primary title", "otherText": "Circumfluus aeris obsistitur ardentior fert", "avatarImage": "lib/assets/avatar.jpg",},
   ];
 
   @override
@@ -41,12 +46,19 @@ class MyListView extends StatelessWidget {
     return ListView.builder(
       itemCount: dataList.length,
       itemBuilder:(context, index) {
-        return ListTile(
+        return  ListTile(
           leading: CircleAvatar(
-            child: Text(dataList[index]["avatar"]),
+            backgroundImage: dataList[index]["avatarImage"] != null
+            ? AssetImage(dataList[index]["avatarImage"])
+            : const AssetImage('lib/assets/avatar.jpg'),
           ),
           title: Text(dataList[index]["content"]),
+          subtitle: Text(dataList[index]["otherText"]),
+          onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondPage()));
+          }
         );
+        
       },
     );
   }
